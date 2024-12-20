@@ -1,0 +1,34 @@
+#BRUTE FORCE
+PYTHON => 
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        my_set = set()
+        index = 0
+        for itr in nums:
+            if itr not in my_set:
+                my_set.add(itr)
+                nums[index]=itr
+                index+=1
+        return index;
+
+TIME complexity
+to insert a element in set the time complexity is log(N)
+for iterate the loop n times time complexity o(N) => o(NlogN)
+
+OPTIMAL (TWO POINTER)
+int removeDuplicates(int* arr, int numsSize) {
+    int i = 0;
+    for(int j=1;j<numsSize;j++){
+        if(arr[i]!=arr[j]){
+            arr[i+1]=arr[j];
+            i++;
+        }
+    }
+    return i+1;
+}
+TIME comlexity
+o(N);
